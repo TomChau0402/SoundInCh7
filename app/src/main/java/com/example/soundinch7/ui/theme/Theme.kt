@@ -11,16 +11,27 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
+
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = SoundInPrimaryDark,
+    secondary = SoundInSecondaryDark,
+    background = SoundInOnBackgroundDark,
+    surface = SoundInSurfaceDark,
+    onPrimary = SoundInOnPrimaryDark,
+    onBackground = SoundInOnBackgroundDark,
+    onSurface = SoundInOnSurfaceDark,
 )
 
+
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+    primary = SoundInPrimary,
+    secondary = SoundInSecondary,
+    background = SoundInBackground,
+    surface = SoundInSurface,
+    onPrimary = SoundInOnPrimary,
+    onSecondary = SoundInOnSecondary,
+    onBackground = SoundInOnBackground,
+    onSurface = SoundInOnSurface,
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),

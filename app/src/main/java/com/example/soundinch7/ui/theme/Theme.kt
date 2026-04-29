@@ -2,14 +2,18 @@ package com.example.soundinch7.ui.theme
 
 import android.app.Activity
 import android.os.Build
+import android.view.RoundedCorner
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Shapes
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
 
 
 private val DarkColorScheme = darkColorScheme(
@@ -17,6 +21,7 @@ private val DarkColorScheme = darkColorScheme(
     secondary = SoundInSecondaryDark,
     background = SoundInOnBackgroundDark,
     surface = SoundInSurfaceDark,
+    error = SoundInError,
     onPrimary = SoundInOnPrimaryDark,
     onBackground = SoundInOnBackgroundDark,
     onSurface = SoundInOnSurfaceDark,
@@ -48,7 +53,7 @@ private val LightColorScheme = lightColorScheme(
 fun SoundInCh7Theme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false, // set to false if you don't want to use dynamic colors
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -64,6 +69,14 @@ fun SoundInCh7Theme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
+        shapes = Shapes(
+            extraSmall = RoundedCornerShape(8.dp),
+            small = RoundedCornerShape(12.dp),
+            medium = RoundedCornerShape(16.dp),
+            large = RoundedCornerShape(20.dp),
+            extraLarge = RoundedCornerShape(24.dp)
+
+        ),
         content = content
     )
 }

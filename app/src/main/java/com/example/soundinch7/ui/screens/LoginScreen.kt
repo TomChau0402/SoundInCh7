@@ -170,7 +170,8 @@ fun LoginContent(
 @Composable
 fun LoginScreen(
     viewModel: LoginViewModel = viewModel(),
-    onNavigateToRegister: () -> Unit
+    onNavigateToRegister: () -> Unit,
+    onLoginSuccess: () -> Unit
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
@@ -209,6 +210,7 @@ fun LoginScreen(
                 scope.launch {
                     if (isValid) {
                         snackbarHostState.showSnackbar("Login Successful")
+                        onLoginSuccess()
                     } else {
                         snackbarHostState.showSnackbar("Login Failed")
                     }
@@ -240,12 +242,3 @@ fun LoginContentPreview() {
     }
 }
 
-@Preview
-@Composable
-fun LoginScreenPreview() {
-    SoundInCh7Theme() {
-        LoginScreen(
-            onNavigateToRegister = {}
-        )
-    }
-}

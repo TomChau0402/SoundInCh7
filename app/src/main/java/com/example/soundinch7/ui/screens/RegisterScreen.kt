@@ -1,4 +1,4 @@
-package com.example.soundinch7.ui
+package com.example.soundinch7.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,7 +28,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SegmentedButtonDefaults.Icon
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Switch
@@ -52,11 +51,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.soundinch7.ui.RegisterViewModel
 import com.example.soundinch7.ui.theme.SoundInCh7Theme
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import java.util.TimeZone
 import androidx.compose.material3.rememberDatePickerState as rememberDatePickerState1
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -234,7 +235,7 @@ modifier = Modifier.fillMaxWidth()
                     TextButton(onClick = {
                         datePickerState.selectedDateMillis?.let { millis ->
                             val formatter = SimpleDateFormat("MM/dd/yyyy", Locale.getDefault()).apply {
-                                timeZone = java.util.TimeZone.getTimeZone("UTC")
+                                timeZone = TimeZone.getTimeZone("UTC")
                             }
                             onBirthDateChanged(formatter.format(Date(millis)))
                         }
@@ -411,4 +412,9 @@ fun RegisterScreen(
 @Composable
 fun RegisterContentPreview() {
     SoundInCh7Theme() { }
+}
+@Preview(showBackground = true)
+@Composable
+fun RegisterScreenPreview() {
+    RegisterScreen (){ }
 }

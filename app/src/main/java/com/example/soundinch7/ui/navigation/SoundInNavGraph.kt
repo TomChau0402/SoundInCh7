@@ -2,9 +2,11 @@ package com.example.soundinch7.ui.navigation
 
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.soundinch7.ui.screens.LoginScreen
 import com.example.soundinch7.ui.screens.MainScreen
 import com.example.soundinch7.ui.screens.RegisterScreen
@@ -44,4 +46,10 @@ fun SoundInNavGraph (
     }
 
 
+}
+@Preview(showBackground = true)
+@Composable
+fun SoundInNavGraphPreview() {
+    val navController = rememberNavController()
+    SoundInNavGraph(navController = navController)
 }

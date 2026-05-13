@@ -36,17 +36,18 @@ class MainActivity : ComponentActivity() {
 }
 
 
-@Preview (showBackground = true)
+@Preview(showBackground = true)
 @Composable
 fun SoundInPreview() {
     SoundInCh7Theme() {
         Surface(
             modifier = Modifier.fillMaxWidth(),
             color = MaterialTheme.colorScheme.background
-        ){
-            LoginScreen ( onNavigateToRegister = {},
+        ) {
+            LoginScreen(
+                onNavigateToRegister = {},
                 onLoginSuccess = {})
         } // end of surface
-        }
     }
+}
 

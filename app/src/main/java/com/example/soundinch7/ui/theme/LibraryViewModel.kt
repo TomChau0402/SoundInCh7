@@ -24,7 +24,7 @@ class LibraryViewModel : ViewModel() {
 
     val playlist: StateFlow<List<Playlist>> = PlaylistRepository.playlist
 
-    val filterPlaylist: StateFlow<List<Playlist>> = combine(flow = PlaylistRepository.playlist, flow2 = _selectedTab)
+    val filteredPlaylist: StateFlow<List<Playlist>> = combine(flow = PlaylistRepository.playlist, flow2 = _selectedTab)
     { playlist, tabIndex ->
         when (tabIndex) {
         0 -> playlist

@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavHost
 import androidx.navigation.compose.NavHost
@@ -51,7 +52,16 @@ fun MainScreen() {
         {
             composable(SoundInRoutes.LIBRARY){LibraryScreen()}
             composable (SoundInRoutes.SEARCH){SearchScreen()}
-            composable (SoundInRoutes.PROFILE){ProfileScreen()}
+            composable (SoundInRoutes.PROFILE) {
+                val sessionViewModel: UserViewSessionViewModel = viewModel()
+                ProfileScreen(
+                    sessionViewModel = sessionViewModel,
+                    onLogout = {
+                        // Handle logout
+                    }
+                )
+            }
+
 
 
         } // End of nav host
